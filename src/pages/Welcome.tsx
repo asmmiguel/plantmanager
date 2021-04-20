@@ -8,7 +8,7 @@ import {
     StyleSheet,
     Dimensions,
 } from 'react-native';
-import {Entypo} from '@expo/vector-icons';
+import {Feather} from '@expo/vector-icons';
 import wateringImg from '../assets/watering.png';
 import colors from '../styles/colors';
 
@@ -39,7 +39,10 @@ export function Welcome(){
             >
                 <Text style={styles.buttonText}>
                    
-                  <Entypo name="chevron-thin-right" />
+                  <Feather 
+                    name="chevron-right" 
+                    style={styles.buttonIcon}
+                  />
                 </Text>
             </TouchableOpacity> 
           
@@ -85,10 +88,14 @@ const styles = StyleSheet.create({
         height: 56,
         width: 56
     },
+    buttonIcon:{
+        color: colors.white,
+        fontSize: 32,
+    },
 
     buttonText:{
             color: colors.white,
-            fontSize: 20,
+            fontSize: 24,
     },
 
     
