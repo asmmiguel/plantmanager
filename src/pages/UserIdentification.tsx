@@ -8,9 +8,10 @@ import {
     TextInput,
     KeyboardAvoidingView,
     Platform,
-    TouchebleWithoutFeedback,
-    Keyboard
+    Keyboard,
+    Alert
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Button} from '../components/Button';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
@@ -33,13 +34,18 @@ function handleInputFocus(){
         setIsFocused(true)
     }
 function handleImputChange (value: string){
-        setIsFilled(!!value)
+        setIsFilled(!!value);
         setName(value);
 }
 
 
 function handleSubmit(){
-    navigation.navigate('Confirmation')
+        if(!name)
+            return Alert.alert('Me diz como chamar você 😉');
+
+        await AsyncStorage.setItem('@plantmanager:user', name);
+
+        navigation.navigate('Confirmation');
 }
 
     return(
