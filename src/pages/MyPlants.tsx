@@ -5,7 +5,7 @@ import {
     Text,
     Image,
 } from 'react-native';
-import { Header } from 'react-native/Libraries/NewAppScreen';
+import { Header } from '../components/Header';
 import colors from '../styles/colors';
 
 export function MyPlants() {
