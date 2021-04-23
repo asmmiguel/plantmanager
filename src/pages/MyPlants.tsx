@@ -72,7 +72,7 @@ export function MyPlants() {
                         />
                     )}
                     showsVerticalScrollIndicator={false}
-                    contentContainerStyle={{flex:1}}
+                    
                 />
 
             </View>
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     },
     plants:{
         flex: 1,
+
         width: '100%',
     },
     plantsTitle:{
