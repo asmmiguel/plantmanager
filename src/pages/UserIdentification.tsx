@@ -31,7 +31,7 @@ export function UserIdentification(){
         setIsFilled(!!name);
     }
 function handleInputFocus(){
-        setIsFocused(true)
+        setIsFocused(true);
     }
 function handleImputChange (value: string){
         setIsFilled(!!value);
@@ -39,13 +39,26 @@ function handleImputChange (value: string){
 }
 
 
-function handleSubmit(){
+async function handleSubmit(){
         if(!name)
             return Alert.alert('Me diz como chamar você 😉');
+        
+        try{
+            await AsyncStorage.setItem('@plantmanager:user', name);
 
-        await AsyncStorage.setItem('@plantmanager:user', name);
+            navigation.navigate('Confirmation', {
+                title: 'Prontinho',
+                subtitle: 'Agora vamos começar a cuidar das suas plantinhas com muito cuidado.',
+                buttonTitle: 'Começar',
+                icon: 'smile',
+                nextScreen: 'PlantSelect',
+            });
 
-        navigation.navigate('Confirmation');
+        }catch{
+            return Alert.alert('MNão foi possível salvar o seu nome! 😥');
+        }
+
+        
 }
 
     return(
